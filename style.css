@@ -1,21 +1,150 @@
+@font-face {
+    font-family: 'pt-sans-bold';
+    src: url(./src/fonts/PT_Sans/PTSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'pt-sans-regular';
+    src: url(./src/fonts/PT_Sans/PTSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'rubik';
+    src: url(./src/fonts/Rubik/Rubik-VariableFont_wght.ttf);
+}
+
+
 body {
     background-color: rgb(209, 209, 232);
 }
 
 .main-container {
-    background-color: beige;
+    background-color: #FEFAEF;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    width: 700px;
+    height: 450px;
+}
+
+.card-body {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0;
 }
 
 .inner-left-container {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #27355C;
+    width: 190px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .inner-right-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-image: url(./src/img/brainbg.jpg);
+    background-position: center;
+    background-size: 100%;
+    flex-direction: column;
+    font-size: 24px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.pt-bold {
+    font-family: 'pt-sans-bold', sans-serif;
+}
+
+.pt-reg {
+    font-family: 'pt-sans-regular', sans-serif;
+}
+
+.rubik-reg {
+    font-family: 'rubik', sans-serif;
+    font-weight: 100;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.logo-image {
+    width: 95px;
+    height: 80px;
+}
+
+.theme {
+    border-left: 6px solid transparent;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding-left: 32px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.theme:hover {
+    border-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.logo-brackground {
+    width: 10px;
+    height: 20px;
+}
+
+.start-btn {
+    background-color: #FF4E10;
+    border: none;
+    border-radius: 10px;
+    color: #FEFAEF;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 190px;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-left: 330px;
+}
+
+.letter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 24%;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
 }
