@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(209, 209, 232);
+}
+
+.main-container {
+    background-color: beige;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-left-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.inner-right-container {
+    display: flex;
+    align-items: center;
+}
