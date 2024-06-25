@@ -7,10 +7,11 @@
     <title>Quiz-App</title>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link href="./style.css" rel="stylesheet" type="text/css">
+    <script src="script.js"></script>
 </head>
 
-<body>
-    <nav class="navbar navbar-light bg-light">
+<body onload="init()">
+    <nav class="navbar navbar-light bg-light flex">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Quiz-App</span>
         </div>
@@ -36,26 +37,34 @@
                 </div>
             </div>
             <div class="inner-right-question-container">
-                    <div class="question"> Wer hat HTML erfunden ? </div>
-                    <div class="answer-card" id="answer_card_1">
-                        <div class="answer-letter">A</div>
+                    <div class="question" id="question"> Wer hat HTML erfunden ? </div>
+                    <div class="answer-card" id="answer_card_0" onclick="answer(0)">
+                        <div class="answer-letter" id="answer_letter_0">A</div>
+                        <div id="answer_0">Antwort 1</div>
+                    </div>
+                    <div class="answer-card" id="answer_card_1" onclick="answer(1)">
+                        <div class="answer-letter" id="answer_letter_1">B</div>
                         <div id="answer_1">Antwort 1</div>
                     </div>
-                    <div class="answer-card" id="answer_card_2">
-                        <div class="answer-letter">B</div>
+                    <div class="answer-card" id="answer_card_2" onclick="answer(2)">
+                        <div class="answer-letter" id="answer_letter_2">C</div>
                         <div id="answer_2">Antwort 1</div>
                     </div>
-                    <div class="answer-card" id="answer_card_2">
-                        <div class="answer-letter">C</div>
+                    <div class="answer-card" id="answer_card_3" onclick="answer(3)">
+                        <div class="answer-letter" id="answer_letter_3">D</div>
                         <div id="answer_3">Antwort 1</div>
-                    </div>
-                    <div class="answer-card" id="answer_card_2">
-                        <div class="answer-letter">D</div>
-                        <div id="answer_4">Antwort 1</div>
                 </div>
+                <div class="numbering" id="question-number"></div>
             </div>
         </div>
-
+        <div class="next-bevor-button">
+            <button class="bn-btn" id="bevor-button" disabled onclick="bevorQuestion()">
+                <img class="bevor-arrow" src="./src/img/arrow-without-tail.png">
+            </button>
+            <button class="bn-btn" id="next-button"  disabled onclick="nextQuestion()">
+                <img class="next-arrow" src="./src/img/arrow-without-tail.png">
+            </button>
+        </div>
     </div>
 </body>
 

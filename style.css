@@ -29,6 +29,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .card {
@@ -158,6 +159,11 @@ body {
     margin-bottom: 14px;
 }
 
+.answer-card:hover {
+    cursor: pointer;
+    background-color: rgba(184, 184, 184, 0.141);
+}
+
 .answer-letter {
     padding: 8px 16px;
     margin-right: 44px;
@@ -166,9 +172,14 @@ body {
 }
 
 .question {
+    width: 400px;
+    height: 100px;
     font-family: 'rubik-medium';
-    padding-bottom: 30px;
     font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #content {
@@ -186,4 +197,79 @@ body {
     font-size: 24px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.next-bevor-button {
+    margin-top: 20px;
+    margin-left: 150px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.next-arrow {
+    width: 40px;
+    padding: 10px;
+    padding-left: 11px;
+    padding-right: 9px;
+    background-color: #DADFF4;
+    border-radius: 50%;
+
+}
+
+.numbering {
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.bevor-arrow {
+    rotate: 180deg;
+    width: 40px;
+    padding: 10px;
+    padding-left: 11px;
+    padding-right: 9px;
+    background-color: #DADFF4;
+    border-radius: 50%;
+}
+
+.bn-btn img:hover {
+    background-color: rgb(197, 197, 197);
+}
+
+.bn-btn:disabled img {
+    background-color: #ff501061;
+}
+
+.next-arrow:hover {
+    background-color: rgb(197, 197, 197);
+}
+
+.bn-btn {
+    border-style: none;
+    background-color: transparent;
+}
+
+.btn-correct {
+    background-color: rgba(33, 146, 33, 0.48);
+}
+
+.btn-correct:hover {
+    background-color: rgba(33, 146, 33, 0.48);
+}
+
+.btn-false {
+    background-color: rgba(192, 44, 44, 0.613);
+}
+
+.btn-false:hover {
+    background-color: rgba(192, 44, 44, 0.613);
+}
+
+.letter-true {
+    background-color: rgb(33, 146, 33);
+}
+
+.letter-false {
+    background-color: rgb(192, 44, 44);
 }
