@@ -179,9 +179,9 @@ function gameIsOver() {
 function answer(answer_number) {
     let question = questions_1[currentQuestion];
     if (correctAnswer(answer_number)) {
-        showCorrectAnswer(question,answer_number);
+        rightAnswerSelected(question);
     } else {
-        showWrongAnswer(question,answer_number);
+        wrongAnswerSelected(question,answer_number);
     }
     document.getElementById('next-button').disabled = false;
 }
@@ -190,14 +190,14 @@ function correctAnswer(answer_number) {
     return answer_number == question.right_answer;
 }
 
-function showCorrectAnswer(question,answer_number) {
+function rightAnswerSelected(question) {
     document.getElementById(`answer_card_${question.right_answer}`).classList.add('btn-correct');
     document.getElementById(`answer_letter_${question.right_answer}`).classList.add('letter-true');
     scorePoints++;
     AUDIO_SUCCSESS.play();
 }
 
-function showWrongAnswer(question,answer_number) {
+function wrongAnswerSelected(question,answer_number) {
     document.getElementById(`answer_card_${answer_number}`).classList.add('btn-false');
     document.getElementById(`answer_letter_${answer_number}`).classList.add('letter-false');
     AUDIO_FAIL.play();
