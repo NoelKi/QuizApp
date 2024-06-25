@@ -16,12 +16,16 @@
             <span class="navbar-brand mb-0 h1">Quiz-App</span>
         </div>
     </nav>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
     <div class="main-container">
         <div class="card">
             <div class="inner-left-container">
                 <img src="./src/img/logo.png" class="logo-image mt-3 mb-2" alt="...">
                 <div class="card-body mt-5 rubik-reg">
-                    <a href="#" class="theme">
+                    <a href="#" class="theme active" active>
                         <span class="mb-5">HTML</span>
                     </a>
                     <a href="#" class="theme">
@@ -36,7 +40,21 @@
 
                 </div>
             </div>
-            <div class="inner-right-question-container">
+            <div class="final-results-container" id="end_screen" style="display: none;">
+                <img class="brain-results" src="./src/img/brain result.png">
+                <span>  COMPLETE </span> 
+                <span style="margin-top: -8px;">HTML QUIZ</span>
+
+                <div class="score">
+                    <span>YOUR SCORE </span> 
+                    <span id="score_points">10/10</span>
+                </div>
+                
+                <button class="share">SHARE</button>
+                <button class="replay" onclick="resetQuiz()">REPLAY</button>
+
+            </div>
+            <div class="inner-right-question-container" id="question_body">
                     <div class="question" id="question"> Wer hat HTML erfunden ? </div>
                     <div class="answer-card" id="answer_card_0" onclick="answer(0)">
                         <div class="answer-letter" id="answer_letter_0">A</div>
@@ -57,7 +75,7 @@
                 <div class="numbering" id="question-number"></div>
             </div>
         </div>
-        <div class="next-bevor-button">
+        <div class="next-bevor-button" id="next_bevor_button">
             <button class="bn-btn" id="bevor-button" disabled onclick="bevorQuestion()">
                 <img class="bevor-arrow" src="./src/img/arrow-without-tail.png">
             </button>
@@ -66,6 +84,7 @@
             </button>
         </div>
     </div>
+    <img id="trophy" src="./src/img/tropy.png" style="display: none;">
 </body>
 
 </html>

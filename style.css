@@ -23,6 +23,10 @@ body {
     background-color: rgb(209, 209, 232);
 }
 
+a {
+    text-decoration: none;
+}
+
 .main-container {
     background-color: #FEFAEF;
     height: calc(100vh - 50px);
@@ -105,7 +109,8 @@ body {
     font-size: 24px;
 }
 
-.theme:hover {
+.theme:hover,
+.theme.active {
     border-color: rgb(255, 255, 255);
     margin-bottom: 20px;
 }
@@ -272,4 +277,72 @@ body {
 
 .letter-false {
     background-color: rgb(192, 44, 44);
+}
+
+.final-results-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #F7F7F7;
+    flex-direction: column;
+    font-size: 18px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    font-style: 'rubik';
+    font-weight: 800;
+}
+
+.brain-results {
+    width: 90px;
+}
+
+.score {
+    padding: 10px;
+    color: orange;
+
+}
+
+#score_points {
+
+    color: black;
+    padding-left: 20px;
+}
+
+.share {
+    border-style: none;
+    color: white;
+    background-color: blue;
+    padding: 2px 50px;
+    border-radius: 8px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.replay {
+    margin-top: 10px;
+    border-style: none;
+    color: blue;
+    background-color: transparent;
+    padding: 2px 50px;
+    border-radius: 8px;
+    font-weight: 300;
+}
+
+#trophy {
+    position: absolute;
+    right: 0px;
+    top: 47%;
+    width: 100px;
+}
+
+.progress-bar {
+    background-color: #27355C;
+    height: 10px;
+}
+
+.progress {
+    height: 10px;
 }

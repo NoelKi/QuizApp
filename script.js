@@ -72,12 +72,12 @@ let questions_1 = [
         "right_answer": 0
     },
     {
-        "question": "",
-        "answer_1": "",
-        "answer_2": "",
-        "answer_3": "",
-        "answer_4": "",
-        "right_answer": 0
+        "question": "Wie wird eine Seitenleiste definiert ?",
+        "answer_1": "sideliste",
+        "answer_2": "aside",
+        "answer_3": "toside",
+        "answer_4": "div",
+        "right_answer": 1
     }
 ]
 
@@ -115,17 +115,20 @@ let questions_2 = [
         "right_answer": 0
     },
     {
-        "question": "",
-        "answer_1": "",
-        "answer_2": "",
-        "answer_3": "",
-        "answer_4": "",
-        "right_answer": 0
+        "question": "Wie wird eine Seitenleiste definiert ?",
+        "answer_1": "sideliste",
+        "answer_2": "aside",
+        "answer_3": "toside",
+        "answer_4": "div",
+        "right_answer": 1
     }
 ]
 
-
 let currentQuestion = 0;
+let scorePoints = 0;
+let AUDIO_FAIL = new Audio('./src/sounds/fail.mp3');
+let AUDIO_SUCCSESS = new Audio('./src/sounds/success.mp3');
+
 
 function init() {
     // document.getElementById('all-questions').innerHTML = questions_1.length;
@@ -133,29 +136,48 @@ function init() {
 }
 
 function showQuestion() {
-    let question = questions_1[currentQuestion];
-    document.getElementById('question-number').innerHTML = `<b>${currentQuestion}</b> - <b>${questions_1.length}</b>` 
-    document.getElementById('question').innerHTML = question.question;
-    document.getElementById('answer_0').innerHTML = question.answer_1;
-    document.getElementById('answer_1').innerHTML = question.answer_2;
-    document.getElementById('answer_2').innerHTML = question.answer_3;
-    document.getElementById('answer_3').innerHTML = question.answer_4;
-}
+    if (currentQuestion >= questions_1.length) {
+        let progressBar = document.querySelector('.progress-bar');
+        progressBar.setAttribute('aria-valuenow', 100);
+        progressBar.style.width = 100 + '%';
 
+
+        document.getElementById('end_screen').style = ``;
+        document.getElementById('trophy').style = ``;
+        document.getElementById('question_body').style = 'display: none';
+        document.getElementById('next_bevor_button').style = 'display: none';
+        document.getElementById('score_points').innerHTML = `${scorePoints}/${questions_1.length}`;
+    } else {
+
+        let percent = (currentQuestion  / questions_1.length) * 100;
+        let progressBar = document.querySelector('.progress-bar');
+        progressBar.setAttribute('aria-valuenow', percent);
+        progressBar.style.width = percent + '%';
+
+        let question = questions_1[currentQuestion];
+        document.getElementById('question-number').innerHTML = `<b>${currentQuestion + 1}</b> - <b>${questions_1.length}</b>`
+        document.getElementById('question').innerHTML = question.question;
+        document.getElementById('answer_0').innerHTML = question.answer_1;
+        document.getElementById('answer_1').innerHTML = question.answer_2;
+        document.getElementById('answer_2').innerHTML = question.answer_3;
+        document.getElementById('answer_3').innerHTML = question.answer_4;
+    }
+}
 function answer(answer_number) {
     let question = questions_1[currentQuestion];
     if (answer_number == question.right_answer) {
         document.getElementById(`answer_card_${question.right_answer}`).classList.add('btn-correct');
         document.getElementById(`answer_letter_${question.right_answer}`).classList.add('letter-true');
-
+        scorePoints++;
+        AUDIO_SUCCSESS.play();
     } else {
         document.getElementById(`answer_card_${answer_number}`).classList.add('btn-false');
         document.getElementById(`answer_letter_${answer_number}`).classList.add('letter-false');
-
+        AUDIO_FAIL.play();
         setTimeout(function () {
             document.getElementById(`answer_card_${question.right_answer}`).classList.add('btn-correct');
             document.getElementById(`answer_letter_${question.right_answer}`).classList.add('letter-true');
-        }, 400);
+        }, 200);
     }
     document.getElementById('next-button').disabled = false;
 }
@@ -165,6 +187,7 @@ function nextQuestion() {
     clearAnswerButtons();
     showQuestion();
     document.getElementById('bevor-button').disabled = false;
+    document.getElementById('next-button').disabled = true;
 }
 
 function bevorQuestion() {
@@ -182,4 +205,14 @@ function clearAnswerButtons() {
         document.getElementById(`answer_card_${i}`).classList.remove('btn-false');
         document.getElementById(`answer_letter_${i}`).classList.remove('letter-false');
     }
+}
+
+function resetQuiz() {
+    currentQuestion = 0;
+    scorePoints = 0;
+    document.getElementById('end_screen').style = `display: none`;
+    document.getElementById('trophy').style = `display: none`;
+    document.getElementById('question_body').style = ``;
+    document.getElementById('next_bevor_button').style = '';
+    showQuestion();
 }
