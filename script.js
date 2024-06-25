@@ -205,6 +205,10 @@ let questions_4 = [
 let currentQuestion = 0;
 
 
+function init() {
+    document.getElementById('all-questions').innerHTML = guestions_1.length
+}
+
 function renderQuestions() {
     let question = questions_1[currentQuestion];
 
@@ -215,7 +219,4 @@ function createQuestion() {
     return ``;
 }
 
-function init() {
-    let content = document.getElementById('content');
-}
 
